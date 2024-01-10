@@ -1,7 +1,106 @@
-# Occupancy-abundance-model
-An occupancy-abundance model for abundance mediated species interactions
+# Summary
+These are MCMC samplers and processing and run scripts for a occupancy-abundance model for abundance-mediated species interactions. This model framework models detection/non-detection data to estimated occupancy, abundance, and interactions between the species of interest. This model enables the user to use detection/non-detection data collected over repeat surveys to model interactions as a function of abundance. These samplers are presented in Twining et al. submitted, and are based on adaptations of the [Waddle et al. (2010)](https://www.jstor.org/stable/25680391) formulation for modelling species interactions within an occupancy model, but instead of modelling the state model of a subordinate species a function of the occupancy states, it is modelled as a function of abundance (N). We provide a range of MCMC samplers for different ecological scenarios between two or more species including disease- and predator- mediated competition, mesopredator release, and tri-trophic cascades.
 
-This occupancy-abunduance model adapts the Waddle et al. (2010) formulation for modelling species interactions within an occupancy model, but instead of modelling the state model of a subordinate species a function of the z state of the dominant species, it is modelled as a function of N.
-N is derived through modelling of unmarked count data in an RN framework (ala Royle & Nichols, 2003).
+# The working directory
 
-Currently in this repo is a simulator for a  two-specis and three-species version occupancy-abundance model with a binomial observation model, a two-species version also with binomial observation model, and also a case study example of the three-species model with a binomial observation model. 
+Below you fill find descriptions of each folder in this repository and files contained within them.
+
+# The data folder (./data)
+
+This folder has X files.
+
+**1. alNY_2013-2021_6kmbuffer_allsitecovs.csv**
+
+This file contains all of the summarized spatial covariate data at a 6km scale used in the analysis. Each row is a different 6km 2 pixel in New York State, each column is a covariate, and each cell is a value.
+
+The covariates used in the analysis.
+
+| **Covariate**           | **Description**                                                                       | **Source**                                                                                              |
+|-------------------------|---------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
+| Deciduous               | Proportion of a 10 km2 grid cell made up of deciduous forest                          | NLCD, 2019 (https://www.mrlc.gov/data/nlcd-2019-land-cover-conus)                                       |
+| Coniferous              | Proportion of a 10 km2 grid cell made up of coniferous forest                         | NLCD, 2019 (https://www.mrlc.gov/data/nlcd-2019-land-cover-conus)                                       |
+| Mixed                   | Proportion of a 10 km2 grid cell made up of mixed forest                              | NLCD, 2019 (https://www.mrlc.gov/data/nlcd-2019-land-cover-conus)                                       |
+| Pasture                 | Proportion of a 10 km2 grid cell made up of pasture                                   | NLCD, 2019 (https://www.mrlc.gov/data/nlcd-2019-land-cover-conus)                                       |
+| Cultivated.Crops        | Proportion of a 10 km2 grid cell made up of cultivated crops                          | NLCD, 2019 (https://www.mrlc.gov/data/nlcd-2019-land-cover-conus)                                       |
+| road_density            | Mean number of km of road per km 2 in each grid cell                                  | calculated from primary and secondary roads raster provided by the NYSDEC                               |
+| elevation               | Mean elevation (m) of the 10 km2 grid cell                                            | calculated from Digital Elevation Models of New York State provided by the NYSDEC                       |
+| forest_edge             | Edge density of combined class of all forest                                          | NLCD, 2019 (https://www.mrlc.gov/data/nlcd-2019-land-cover-conus)                                       |
+| PO_join_count_truncated | density of presence-only points (all mammals from online repositories from 2013-2021) | calculated from all online repositories, hosted on github (/data/Allcompiled_POdata_NYMS_noduplicates)  |
+
+**2.allNY__2013-2021_15kmbuffer_allsitecovs.csv**
+
+This file contains all of the summarized spatial covariate data at a 15km scale used in the analysis. Each row is a different 15km 2 pixel in New York State, each column is a covariate, and each cell is a value.
+
+The covariates used in the analysis.
+
+| **Covariate**           | **Description**                                                                       | **Source**                                                                                              |
+|-------------------------|---------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
+| Deciduous               | Proportion of a 10 km2 grid cell made up of deciduous forest                          | NLCD, 2019 (https://www.mrlc.gov/data/nlcd-2019-land-cover-conus)                                       |
+| Coniferous              | Proportion of a 10 km2 grid cell made up of coniferous forest                         | NLCD, 2019 (https://www.mrlc.gov/data/nlcd-2019-land-cover-conus)                                       |
+| Mixed                   | Proportion of a 10 km2 grid cell made up of mixed forest                              | NLCD, 2019 (https://www.mrlc.gov/data/nlcd-2019-land-cover-conus)                                       |
+| Pasture                 | Proportion of a 10 km2 grid cell made up of pasture                                   | NLCD, 2019 (https://www.mrlc.gov/data/nlcd-2019-land-cover-conus)                                       |
+| Cultivated.Crops        | Proportion of a 10 km2 grid cell made up of cultivated crops                          | NLCD, 2019 (https://www.mrlc.gov/data/nlcd-2019-land-cover-conus)                                       |
+| road_density            | Mean number of km of road per km 2 in each grid cell                                  | calculated from primary and secondary roads raster provided by the NYSDEC                               |
+| elevation               | Mean elevation (m) of the 10 km2 grid cell                                            | calculated from Digital Elevation Models of New York State provided by the NYSDEC                       |
+| forest_edge             | Edge density of combined class of all forest                                          | NLCD, 2019 (https://www.mrlc.gov/data/nlcd-2019-land-cover-conus)                                       |
+| PO_join_count_truncated | density of presence-only points (all mammals from online repositories from 2013-2021) | calculated from all online repositories, hosted on github (/data/Allcompiled_POdata_NYMS_noduplicates)  |
+
+**3. allNY_2016_2018_bearPOrecord_pixelID_10kmgrid_noweeklydups_final.csv**
+
+This file contains all the presence-only data used in this analysis for black bears  (maximum 1 per 10 km2 pixel per week) between the years 2016-2018 both from public online repositories and iSeeMammals, a citizen science bear monitoring project run by Cornell University
+
+**4. NY_blackbears_ordinaldates.csv**
+
+This file contains the sampling dates (in ordinal format) for each sampling occasion from the summer surveys from 2016-2018. Each row is a site, each column is an occasion.
+
+**5. allNY_2013-2021_coyotePArecords_pixelID_10kmgrid.csv**
+
+This file contains all the detection/non-detection data for coyotes collected during winter surveys from 2013-2021 in the southern tier of New York State. Each row is a site, each column is an occasion, each cell is a detection/non-detection record.
+
+**6. allNY_2013_2021_coyotePOrecord_pixelID_10kmgrid_noweeklydups.csv**
+
+This file contains all the presence-only data used in this analysis for coyotes (maximum 1 per 10 km2 pixel per week) between the years 2013-2021 both from public online repositories
+
+**7. 'juliandays_allNY_2013-2021.csv'**
+
+This file contains the sampling dates (in ordinal format) for each sampling occasion for the winter surveys from 2013-2021. Each row is a site, each column is an occasion.
+
+**8. allNY_2013-2021_bobcatPArecords_pixelID_10kmgrid.csv**
+
+This file contains all the detection/non-detection data for bobcats collected during winter surveys from 2013-2021 in the southern tier of New York State. Each row is a site, each column is an occasion, each cell is a detection/non-detection record.
+
+**9. allNY_2013_2021_bobcatPOrecord_pixelID_10kmgrid_noweeklydups.csv**
+
+This file contains all the presence-only data used in this analysis for bobcats (maximum 1 per 10 km2 pixel per week) between the years 2013-2021 both from public online repositories
+
+**10. Allcompiled_POdata_NYMS_noduplicates.csv**
+
+This file contains all the mammal species presence-only detections compiled from New York Mammal Survey which draws records from GBIF, iNaturalist, and emammal (https://www.nynhp.org/projects/statewide-mammal-survey/)
+
+# The model folder (./models)
+
+The models are coded up via the nimble package version 0.13.1 (de Valpine et al. 2022).
+
+**1. nimble_ppp_integrated_model_bear_10km_yearindexed_randomeffects_centrered.R**
+
+This is the nimble IPPP model that is fit to the black bear data files above. The code is commented out to describe each part of the model.
+
+**2. nimble_ppp_integrated_model_coyote_10km_yearindexed_randomeffects_centered**
+
+This is the nimble IPPP model that is fit to the coyote data files above. The code is commented out to describe each part of the model.
+
+**3. nimble_ppp_integrated_model__bobcat_10km_indexingoveryear_randomeffects_centered**
+
+This is the nimble IPPP model that is fit to the bobcat data files above. The code is commented out to describe each part of the model.
+
+
+# The scripts folder (./scripts)
+
+**1. bear_PO_PA_model_10km_nimble_formattingandrunscript_indexoveryear**
+
+This is the formatting and run script for the bear data and model above. This code is commented throughout.
+
+**2. coyote_PO_PA_model_10km_nimble_formattingandrunscript_indexoveryear**
+
+This is the formatting and run script for the coyote data and model above. This code is commented throughout.
+
