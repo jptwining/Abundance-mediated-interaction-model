@@ -15,17 +15,18 @@ This file contains all of the summarized spatial covariate data at a 6km scale u
 
 The covariates used in the analysis.
 
-| **Covariate**           | **Description**                                                                       | **Source**                                                                                              |
-|-------------------------|---------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
-| Deciduous               | Proportion of a 10 km2 grid cell made up of deciduous forest                          | NLCD, 2019 (https://www.mrlc.gov/data/nlcd-2019-land-cover-conus)                                       |
-| Coniferous              | Proportion of a 10 km2 grid cell made up of coniferous forest                         | NLCD, 2019 (https://www.mrlc.gov/data/nlcd-2019-land-cover-conus)                                       |
-| Mixed                   | Proportion of a 10 km2 grid cell made up of mixed forest                              | NLCD, 2019 (https://www.mrlc.gov/data/nlcd-2019-land-cover-conus)                                       |
-| Pasture                 | Proportion of a 10 km2 grid cell made up of pasture                                   | NLCD, 2019 (https://www.mrlc.gov/data/nlcd-2019-land-cover-conus)                                       |
-| Cultivated.Crops        | Proportion of a 10 km2 grid cell made up of cultivated crops                          | NLCD, 2019 (https://www.mrlc.gov/data/nlcd-2019-land-cover-conus)                                       |
-| road_density            | Mean number of km of road per km 2 in each grid cell                                  | calculated from primary and secondary roads raster provided by the NYSDEC                               |
-| elevation               | Mean elevation (m) of the 10 km2 grid cell                                            | calculated from Digital Elevation Models of New York State provided by the NYSDEC                       |
-| forest_edge             | Edge density of combined class of all forest                                          | NLCD, 2019 (https://www.mrlc.gov/data/nlcd-2019-land-cover-conus)                                       |
-| PO_join_count_truncated | density of presence-only points (all mammals from online repositories from 2013-2021) | calculated from all online repositories, hosted on github (/data/Allcompiled_POdata_NYMS_noduplicates)  |
+| **Covariate**    | **Description**                                                                              | **Source**                                                                                                                                       |
+|------------------|----------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
+| Deciduous        | Proportion of a 6 km2 buffer around the detector made up of deciduous forest                 | NLCD, 2019 (https://www.mrlc.gov/data/nlcd-2019-land-cover-conus)                                                                                |
+| Coniferous       | Proportion of a 6 km2 buffer around the detector made up of coniferous forest                | NLCD, 2019 (https://www.mrlc.gov/data/nlcd-2019-land-cover-conus)                                                                                |
+| Mixed            | Proportion of a 6 km2 buffer around the detector made up of mixed forest                     | NLCD, 2019 (https://www.mrlc.gov/data/nlcd-2019-land-cover-conus)                                                                                |
+| Pasture          | Proportion of a 6 km2 buffer around the detector made up of pasture                          | NLCD, 2019 (https://www.mrlc.gov/data/nlcd-2019-land-cover-conus)                                                                                |
+| Cultivated.Crops | Proportion of a 6 km2 buffer around the detector made up of cultivated crops                 | NLCD, 2019 (https://www.mrlc.gov/data/nlcd-2019-land-cover-conus)                                                                                |
+| road_density     | Mean number of km of road per km2 in each 6 km2 buffer                                       | calculated from primary and secondary roads raster provided by the NYSDEC, hosted on the githu                                                   |
+| snow_depth       | Mean daily snow depth(m) of the 6 km2 buffer around each detector across the sampling period | National Operational Hydrologic Remote Sensing Centre, 2004. Snow data assimilation system (SNODAS) products (https://doi.org/10.7265/N5TB14TC). |
+| forest_edge      | Edge density of combined class of all forest in each 6 km2 buffer around detectors           | NLCD, 2019 (https://www.mrlc.gov/data/nlcd-2019-land-cover-conus)                                                                                |
+| GPP              | The amount of carbon captured by plants (kg C MJ-1) in at the detectors                      | MODIS Land Satellite, 2017 (https://lpdaac.usgs.gov/products/mod17a2hv006/)                                                                      |
+| Camera           | The camera trap model used at each site (Bushnell, Recoynx, Browning)                        | Fieldwork datasheets                                                                                                                             |
 
 **2.allNY__2013-2021_15kmbuffer_allsitecovs.csv**
 
@@ -33,17 +34,19 @@ This file contains all of the summarized spatial covariate data at a 15km scale 
 
 The covariates used in the analysis.
 
-| **Covariate**           | **Description**                                                                       | **Source**                                                                                              |
-|-------------------------|---------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
-| Deciduous               | Proportion of a 10 km2 grid cell made up of deciduous forest                          | NLCD, 2019 (https://www.mrlc.gov/data/nlcd-2019-land-cover-conus)                                       |
-| Coniferous              | Proportion of a 10 km2 grid cell made up of coniferous forest                         | NLCD, 2019 (https://www.mrlc.gov/data/nlcd-2019-land-cover-conus)                                       |
-| Mixed                   | Proportion of a 10 km2 grid cell made up of mixed forest                              | NLCD, 2019 (https://www.mrlc.gov/data/nlcd-2019-land-cover-conus)                                       |
-| Pasture                 | Proportion of a 10 km2 grid cell made up of pasture                                   | NLCD, 2019 (https://www.mrlc.gov/data/nlcd-2019-land-cover-conus)                                       |
-| Cultivated.Crops        | Proportion of a 10 km2 grid cell made up of cultivated crops                          | NLCD, 2019 (https://www.mrlc.gov/data/nlcd-2019-land-cover-conus)                                       |
-| road_density            | Mean number of km of road per km 2 in each grid cell                                  | calculated from primary and secondary roads raster provided by the NYSDEC                               |
-| elevation               | Mean elevation (m) of the 10 km2 grid cell                                            | calculated from Digital Elevation Models of New York State provided by the NYSDEC                       |
-| forest_edge             | Edge density of combined class of all forest                                          | NLCD, 2019 (https://www.mrlc.gov/data/nlcd-2019-land-cover-conus)                                       |
-| PO_join_count_truncated | density of presence-only points (all mammals from online repositories from 2013-2021) | calculated from all online repositories, hosted on github (/data/Allcompiled_POdata_NYMS_noduplicates)  |
+| **Covariate**    | **Description**                                                                               | **Source**                                                                                                                                       |
+|------------------|-----------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
+| Deciduous        | Proportion of a 15 km2 buffer around the detector made up of deciduous forest                 | NLCD, 2019 (https://www.mrlc.gov/data/nlcd-2019-land-cover-conus)                                                                                |
+| Coniferous       | Proportion of a 15 km2 buffer around the detector made up of coniferous forest                | NLCD, 2019 (https://www.mrlc.gov/data/nlcd-2019-land-cover-conus)                                                                                |
+| Mixed            | Proportion of a 15 km2 buffer around the detector made up of mixed forest                     | NLCD, 2019 (https://www.mrlc.gov/data/nlcd-2019-land-cover-conus)                                                                                |
+| Pasture          | Proportion of a 15 km2 buffer around the detector made up of pasture                          | NLCD, 2019 (https://www.mrlc.gov/data/nlcd-2019-land-cover-conus)                                                                                |
+| Cultivated.Crops | Proportion of a 15 km2 buffer around the detector made up of cultivated crops                 | NLCD, 2019 (https://www.mrlc.gov/data/nlcd-2019-land-cover-conus)                                                                                |
+| road_density     | Mean number of km of road per km2 in each 15 km2 buffer                                       | calculated from primary and secondary roads raster provided by the NYSDEC, hosted on the githu                                                   |
+| snow_depth       | Mean daily snow depth(m) of the 15 km2 buffer around each detector across the sampling period | National Operational Hydrologic Remote Sensing Centre, 2004. Snow data assimilation system (SNODAS) products (https://doi.org/10.7265/N5TB14TC). |
+| forest_edge      | Edge density of combined class of all forest in each 15 km2 buffer around detectors           | NLCD, 2019 (https://www.mrlc.gov/data/nlcd-2019-land-cover-conus)                                                                                |
+| GPP              | The amount of carbon captured by plants (kg C MJ-1) in at the detectors                       | MODIS Land Satellite, 2017 (https://lpdaac.usgs.gov/products/mod17a2hv006/)                                                                      |
+| Deer             | The probability of occupancy (ψ) of white-tailed deer in a 15 km2 buffer around each detector | Calculated from detection/non-detection data and covariate hosted in the repository (see below)                                                  |
+| Camera           | The camera trap model used at each site (Bushnell, Recoynx, Browning)                         | Fieldwork datasheets                                                                                                                             |
 
 **3. allNY_2016_2018_bearPOrecord_pixelID_10kmgrid_noweeklydups_final.csv**
 
