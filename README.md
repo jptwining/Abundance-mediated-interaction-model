@@ -5,7 +5,7 @@ These are MCMC samplers, data simulators, and processing and run scripts for a o
 
 Below you fill find descriptions of each folder in this repository and files contained within them.
 
-# Models and data simulators (./models_and_simulations)
+# Models and data simulators (./occupancy_abundance_model/models_and_simulations)
 This folder has seven R scripts. Within each script are MCMC samplers and a data simulator for different iterations of the occupancy-abundance model. Model code and implentation is conducted in the nimble package [(de Valpine et al. 2022).](https://cran.r-project.org/web/packages/nimble/index.html) 
 
 **1. two_species_occupancy_abundance_data_simulator_and_model.R**
@@ -37,7 +37,7 @@ This script contains a data simulator and model for simulating a three species a
 This script contains a data simulator and model for simulating a two species occupancy abundance model with spatially varying interaction terms. The code is commented throughout to describe each part of the simulator and script.
 
 
-# The coyote-fisher-marten case study folder (./casestudy)
+# The coyote-fisher-marten case study folder (./occupancy_abundance_model/case_study)
 
 This folder has nine files.
 
