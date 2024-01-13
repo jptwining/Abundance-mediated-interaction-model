@@ -27,7 +27,7 @@ This script contains a data simulator and model for simulating a three species a
 
 # The coyote-fisher-marten case study folder (./casestudy)
 
-This folder has eight files.
+This folder has nine files.
 
 **1. alNY_2013-2021_6kmbuffer_allsitecovs.csv**
 
@@ -42,7 +42,7 @@ The covariates used in the analysis.
 | Mixed            | Proportion of a 6 km2 buffer around the detector made up of mixed forest                     | NLCD, 2019 (https://www.mrlc.gov/data/nlcd-2019-land-cover-conus)                                                                                |
 | Pasture          | Proportion of a 6 km2 buffer around the detector made up of pasture                          | NLCD, 2019 (https://www.mrlc.gov/data/nlcd-2019-land-cover-conus)                                                                                |
 | Cultivated.Crops | Proportion of a 6 km2 buffer around the detector made up of cultivated crops                 | NLCD, 2019 (https://www.mrlc.gov/data/nlcd-2019-land-cover-conus)                                                                                |
-| road_density     | Mean number of km of road per km2 in each 6 km2 buffer                                       | calculated from primary and secondary roads raster provided by the NYSDEC, hosted on the githu                                                   |
+| road_density     | Mean number of km of road per km2 in each 6 km2 buffer                                       | calculated from primary and secondary roads raster provided by the NYSDEC, hosted on the github                                                   |
 | snow_depth       | Mean daily snow depth(m) of the 6 km2 buffer around each detector across the sampling period | National Operational Hydrologic Remote Sensing Centre, 2004. Snow data assimilation system (SNODAS) products (https://doi.org/10.7265/N5TB14TC). |
 | forest_edge      | Edge density of combined class of all forest in each 6 km2 buffer around detectors           | NLCD, 2019 (https://www.mrlc.gov/data/nlcd-2019-land-cover-conus)                                                                                |
 | GPP              | The amount of carbon captured by plants (kg C MJ-1) in at the detectors                      | MODIS Land Satellite, 2017 (https://lpdaac.usgs.gov/products/mod17a2hv006/)                                                                      |
@@ -80,15 +80,19 @@ This file contains the count data for coyote between the years of 2013-2021 in N
 
 This file contains the count data for fisher between the years of 2013-2021 in New York state. Each row is a site, each column is an occasion, each cell is a detection/non-detection record.
 
-**6. juliandays_allNY_2013-2021.csv**
+**6. 7dayoccDetectionswhitetaileddeerNZ.csv**
+
+This file contains the detection/non-detection data for white-tailed deer between the years of 2016-2018 in the northern zone of New York state. Each row is a site, each column is an occasion, each cell is a detection/non-detection record.
+
+**7. juliandays_allNY_2013-2021.csv**
 
 This file contains the sampling dates (in ordinal format) for each sampling occasion for the winter surveys from 2013-2021. Each row is a site, each column is an occasion.
 
-**7. 'coyote_fisher_marten_abu_ocu_binomialobsmodel_nimble_model.R'**
+**8. 'coyote_fisher_marten_abu_ocu_binomialobsmodel_nimble_model.R'**
 
 This is the nimble occupancy-abundance model that is fit to the coyote-fisher-marten data files above. The code is commented out to describe each part of the model.
 
-**8. nimble_occu_abu_coyote_fisher_marten_binomialversion_processingandruncode.R**
+**9. nimble_occu_abu_coyote_fisher_marten_binomialversion_processingandruncode.R**
 
 This is the data loading, formatting, and run script for the case study three species occupancy-abundance model. he code is commented out to describe each stage of the process. 
 
