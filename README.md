@@ -5,8 +5,8 @@ These are MCMC samplers, data simulators, and processing and run scripts for a o
 
 Below you fill find descriptions of each folder in this repository and files contained within them.
 
-# Models and data simulators (./models_and_datasimulators)
-This folder has four R scripts. Within each script are MCMC samplers and a data simulator for different iterations of the occupancy-abundance model. Model code and implentation is conducted in the nimble package [(de Valpine et al. 2022).](https://cran.r-project.org/web/packages/nimble/index.html) 
+# Models and data simulators (./models_and_simulations)
+This folder has seven R scripts. Within each script are MCMC samplers and a data simulator for different iterations of the occupancy-abundance model. Model code and implentation is conducted in the nimble package [(de Valpine et al. 2022).](https://cran.r-project.org/web/packages/nimble/index.html) 
 
 **1. two_species_occupancy_abundance_data_simulator_and_model.R**
 
@@ -14,7 +14,7 @@ This script contains a data simulator and model for simulating a two species occ
 
 **2. three_species_occupancy_abundance_abundance_model_and_simulator_pinemarten_greysquirrel_redsquirrel_example.R**
 
-This script contains a data simulator and model for simulating a three species occupancy abundance model - modeling the occupancy of the dominant species on abundance of intermediate, and abundnace of subordinate, with additional interactions between abundance of intermediae with the subordinate. The code is commented throughout to describe each part of the simulator and script.
+This script contains a data simulator and model for simulating a three species occupancy abundance model - modeling the occupancy of the dominant species on abundance of intermediate, and abundance of subordinate, with additional interactions between abundance of intermediae with the subordinate. The code is commented throughout to describe each part of the simulator and script.
 
 **3. three_species_abundance_abundance_abundance_model_and_simulator_otter_urchin_kelp_example.R**
 
@@ -23,6 +23,18 @@ This script contains a data simulator and model for simulating a three species a
 **4. three_species_abundance_occupancy_occupancy_model_and_simulator_deer_liverfluke_moose_example.R**
 
 This script contains a data simulator and model for simulating a three species abundance model - modeling the abundance of the dominant species on occupancy of intermediate, and occupancy of subordinate, with additional interactions between occupancy of intermediae with the subordinate. The code is commented throughout to describe each part of the simulator and script.
+
+**5. occupancy_vs_abundance_mediated_interactions_model_and_simulator.R**
+
+This script contains a data simulator and model for simulating a two species occupancy abundance model with and fits models with interactions as a function of occupancy and as a function of abundance. The code is commented throughout to describe each part of the simulator and script.
+
+**6. occupancy_abundance_model_three_species_simulator_and_model_variable_detection.R**
+
+This script contains a data simulator and model for simulating a three species abundance model - modeling the abundance of the dominant species on abundance of intermediate, and occupancy of subordinate, with additional interactions between abundance of intermediae with the subordinate. The code is commented throughout to describe each part of the simulator and script.
+
+**7. two_species_occupancy_abundance_simulator_spatially_varying_interaction_terms** 
+
+This script contains a data simulator and model for simulating a two species occupancy abundance model with spatially varying interaction terms. The code is commented throughout to describe each part of the simulator and script.
 
 
 # The coyote-fisher-marten case study folder (./casestudy)
