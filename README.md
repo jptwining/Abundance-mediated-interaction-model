@@ -20,7 +20,7 @@ This script contains a data simulator and model for simulating a three species o
 
 This script contains a data simulator and model for simulating a three species abundance model - modeling the abundance of the dominant species on abundance of intermediate, and abundnace of subordinate, with additional interactions between abundance of intermediae with the subordinate. The code is commented throughout to describe each part of the simulator and script.
 
-**4. three_species_abundance_occupancy_occupancy_model_and_simulator_deer_liverfluke_moose_example.R**
+**4. three_species_abundance_occupancy_occupancy_model_and_simulator_muskoxen_nematode_caribou_example.R**
 
 This script contains a data simulator and model for simulating a three species abundance model - modeling the abundance of the dominant species on occupancy of intermediate, and occupancy of subordinate, with additional interactions between occupancy of intermediae with the subordinate. The code is commented throughout to describe each part of the simulator and script.
 
