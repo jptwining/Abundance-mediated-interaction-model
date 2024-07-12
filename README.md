@@ -82,15 +82,19 @@ The covariates used in the analysis.
 
 **3. allNY_2013-2021_7dayocc_americanmarten_detection_nondetection.csv**
 
-This file contains detection/non-detection data for American marten between the years of 2013-2021 in New York state. Each row is a site, each column is an occasion, each cell is a detection/non-detection record.
+This file contains detection/non-detection data for American marten between the years of 2013-2021 in New York state. Each row is a site, each column is an occasion, each cell is a detection/non-detection record. Used as operations matrix in the script.
+
+**3. 7daycountDetectionsmartenNZ** 
+
+This file contains the count data for marten between the years of 2016-2018 in the Northern Zone of New York state. Each row is a site, each column in an occasion, each cell is a summary of 24hr detection/non-detection records for a weekly occasion.
 
 **4. allNY_2013_2021_7dayocc_coyote_counts.csv**
 
-This file contains the count data for coyote between the years of 2013-2021 in New York state. Each row is a site, each column is an occasion, each cell is a detection/non-detection record.
+This file contains the count data for coyote between the years of 2013-2021 in New York state. Each row is a site, each column is an occasion, eeach cell is a summary of 24hr detection/non-detection records for a weekly occasion.
 
 **5. allNY_2013-2021_7dayocc_fisher_counts.csv**
 
-This file contains the count data for fisher between the years of 2013-2021 in New York state. Each row is a site, each column is an occasion, each cell is a detection/non-detection record.
+This file contains the count data for fisher between the years of 2013-2021 in New York state. Each row is a site, each column is an occasion, each cell is a summary of 24hr detection/non-detection records for a weekly occasion.
 
 **6. 7dayoccDetectionswhitetaileddeerNZ.csv**
 
